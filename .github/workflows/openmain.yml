@@ -26,6 +26,7 @@ env:
   CLONE_BRANCH: master # 分支
   WORK_PATH: opt/openwrt # 工作目录
   SSH_ACTIONS: true
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   build:
@@ -38,7 +39,8 @@ jobs:
       - name: Initialization Environment # 2.初始化环境
         env:
           DEBIAN_FRONTEND: noninteractive
-        run: |
+        run:
+          echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV|
           docker rmi `docker images -q`
           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
           sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* android*
