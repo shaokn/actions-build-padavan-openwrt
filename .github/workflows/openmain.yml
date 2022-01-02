@@ -26,13 +26,16 @@ env:
   CLONE_BRANCH: master # 分支
   WORK_PATH: opt/openwrt # 工作目录
   SSH_ACTIONS: true
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  
 
 jobs:
   build:
     runs-on: ubuntu-18.04
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
+      - name: ACTIONS_ALLOW_UNSECURE_COMMANDS
+        run: echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV
+        
       - name: Checkout Master # 1.导入主分支
         uses: actions/checkout@master
 
@@ -40,7 +43,6 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run:
-          echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV|
           docker rmi `docker images -q`
           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
           sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* android*
