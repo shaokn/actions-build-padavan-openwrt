@@ -31,6 +31,8 @@ jobs:
     runs-on: ubuntu-18.04
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
+      - name: ACTIONS_ALLOW_UNSECURE_COMMANDS
+        run: echo 'ACTIONS_ALLOW_UNSECURE_COMMANDS=true' >> $GITHUB_ENV
       - name: Checkout Master # 1.导入主分支
         uses: actions/checkout@master
 
