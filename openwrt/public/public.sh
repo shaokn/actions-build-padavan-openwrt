@@ -22,6 +22,10 @@ filter_url='https://github.com/destan19/OpenAppFilter.git'                  # Ap
 # echo "修改wifi名称"
 # sed -i "s/OpenWrt/$wifi_name/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
+# Add a feed source
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
+echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
+
 echo "设置lan ip"
 sed -i "s/192.168.1.1/$lan_ip/g" package/base-files/files/bin/config_generate
 
