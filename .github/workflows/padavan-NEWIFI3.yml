@@ -23,7 +23,7 @@ on:
         required: false
         default: 'false'
 env:
-  DEVICES: "PSG1218" # 设备名字数组
+  DEVICES: "NEWIFI3" # 设备名字数组
 jobs:
   build:
     runs-on: ubuntu-18.04
