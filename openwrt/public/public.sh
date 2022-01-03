@@ -67,6 +67,9 @@ echo '添加filebrowser'
 echo 'CONFIG_PACKAGE_luci-app-filebrowser=y' >>.config
 echo 'CONFIG_PACKAGE_luci-i18n-filebrowser-zh-cn=y' >>.config
 
+echo 'CONFIG_PACKAGE_luci-app-fileassistant=y' >>.config
+echo 'CONFIG_PACKAGE_luci-i18n-fileassistant-zh-cn=y' >>.config
+
 # echo '添加adguardhome'
 # git clone $adguardhome_url package/lean/luci-app-adguardhome
 # echo 'CONFIG_PACKAGE_luci-app-adguardhome=y' >> .config
