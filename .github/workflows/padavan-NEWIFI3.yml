@@ -15,6 +15,13 @@ on:
       - logs/n3.md # 监听logs目录下 n3.md 的push操作
   # watch:                              # 监视操作
   #   types: [started]                  # 点击 star 之后
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 env:
   DEVICES: "PSG1218" # 设备名字数组
 jobs:
