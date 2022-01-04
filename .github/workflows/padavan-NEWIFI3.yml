@@ -24,6 +24,9 @@ on:
         default: 'false'
 env:
   DEVICES: "NEWIFI3" # 设备名字数组
+  UPLOAD_PACKAGES_DIR: true # 是否导出bin文件
+  UPLOAD_FIRMWARE: true # 是否导出固件
+
 jobs:
   build:
     runs-on: ubuntu-18.04
